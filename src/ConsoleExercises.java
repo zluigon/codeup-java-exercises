@@ -29,14 +29,19 @@ public class ConsoleExercises {
         System.out.printf("The sentence you entered was: %s%n", userSentence);
 
         System.out.println("Enter room length:");
-        Integer length = Integer.parseInt(scanner.nextLine());
+        String lInput = scanner.nextLine();
         System.out.println("Enter room width:");
-        Integer width = Integer.parseInt(scanner.nextLine());
+        String wInput = scanner.nextLine();
 
-        int area = length * width;
-        int perimeter = (length * 2) + (width * 2);
 
-        System.out.printf("Length: %s, Width: %s, Area: %s, Perimeter: %s", length, width, area, perimeter);
+        double length = Double.parseDouble(lInput);
+        double width = Double.parseDouble(wInput);
+
+        double area = length * width;
+        double perimeter = (length + width) * 2;
+        double volume;
+
+        System.out.printf("Length: %.2f, Width: %.2f, Area: %.2f, Perimeter: %.2f", length, width, area, perimeter);
 
     }
 }
