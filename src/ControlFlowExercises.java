@@ -65,14 +65,23 @@ public class ControlFlowExercises {
 
         System.out.println("What number would you like to up to?");
         int userInput = scanner.nextInt();
-        System.out.println("Number entered: " + userInput);
 
-        System.out.println("number | squared | cubed");
-        System.out.println("----- | ----- | -----");
-        for (int i = 1; i <= userInput; i++ ){
-            int squared = i*i;
-            int cubed = i*i*i;
-            System.out.printf("%d     | %d    | %d    %n", i, squared, cubed);
+        System.out.println("Would you like to continue? [Y/N]");
+        String userConfirm = scanner.next();
+        boolean confirmed = userConfirm.equalsIgnoreCase("Y");
+
+        if (confirmed) {
+            System.out.println("Number entered: " + userInput);
+            System.out.println("number | squared | cubed");
+            System.out.println("----- | ----- | -----");
+            for (int i = 1; i <= userInput; i++) {
+                int squared = i * i;
+                int cubed = i * i * i;
+                System.out.printf("%d     | %d    | %d    %n", i, squared, cubed);
+            }
+        } else {
+            System.out.println("Terminated");
         }
+
     }
 }
