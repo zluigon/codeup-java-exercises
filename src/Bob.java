@@ -5,23 +5,30 @@ public class Bob {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("What would you like to say to Bob?");
-        String userResponse;
+        System.out.println("Would you like to talk to Bob? [Y/N]");
 
-        do {
+        boolean userConfirm = scanner.nextLine().equalsIgnoreCase("y");
+
+
+        if (userConfirm) {
             System.out.println("If you'd like to stop talking to Bob, say \"Goodbye\".");
-            userResponse = scanner.nextLine();
-            if (userResponse.endsWith("?")) {
-                System.out.println("Bob: Sure");
-            } else if (userResponse.endsWith("!")) {
-                System.out.println("Bob: Whoa, chill out!");
-            } else if (userResponse.isEmpty()) {
-                System.out.println("Fine. Be that way!");
-            } else if (userResponse.equalsIgnoreCase("goodbye")) {
-                System.out.println("Bob: Later.");
-            } else {
-                System.out.println("Bob: Whatever.");
+            System.out.println("What would you like to say: ");
+            String userResponse = scanner.nextLine();
+            while (!userResponse.equalsIgnoreCase("goodbye")) {
+                if (userResponse.endsWith("?")) {
+                    System.out.println("Bob: Sure");
+                } else if (userResponse.endsWith("!")) {
+                    System.out.println("Bob: Whoa, chill out!");
+                } else if (userResponse.isEmpty()) {
+                    System.out.println("Fine. Be that way!");
+                } else {
+                    System.out.println("Bob: Whatever.");
+                }
+                userResponse = scanner.nextLine();
             }
-        } while (!userResponse.equalsIgnoreCase("goodbye"));
+            System.out.println("Goodbye.");
+        } else {
+            System.out.println("Okay, maybe next time.");
+        }
     }
 }
