@@ -27,8 +27,9 @@ public class MethodsExercises {
 //        System.out.println("Multiplication: " + multiplication(6, 6));
 //        System.out.println("Division: " + division(100, 5));
 //        System.out.println("Modulus: " + modulus(13, 3));
-        int num = getInteger(1, 20);
-        factorial(num);
+//        int num = getInteger(1, 20);
+//        factorial(num);
+        dice();
     }
 
     public static int getInteger(int min, int max) {
@@ -63,6 +64,23 @@ public class MethodsExercises {
             factorial(num);
         } else {
             System.out.println("End.");
+        }
+    }
+
+    public static void dice() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of sides on the dice: ");
+        int sideNum = scanner.nextInt();
+
+        System.out.println("Would you to roll? [Y/N]");
+        boolean userConfirm = scanner.next().equalsIgnoreCase("y");
+
+        if (userConfirm) {
+            int rollOne = (int) (Math.random() * sideNum);
+            int rollTwo = (int) (Math.random() * sideNum);
+
+            System.out.printf("dieOne rolled: %d, dieTwo rolled: %d%n", rollOne, rollTwo);
+            dice();
         }
     }
 }
