@@ -1,6 +1,18 @@
 import java.util.Scanner;
 
 public class MethodsExercises {
+
+    public static void main(String[] args) {
+//        System.out.println("Addition:" + addition(1, 2));
+//        System.out.println("Subtraction:" + subtraction(5, 3));
+//        System.out.println("Multiplication: " + multiplication(6, 6));
+//        System.out.println("Division: " + division(100, 5));
+//        System.out.println("Modulus: " + modulus(13, 3));
+//        int num = getInteger(1, 20);
+//        factorial(num);
+//        dice();
+    }
+//    1
     public static int addition(int num1, int num2) {
         return num1 + num2;
     }
@@ -21,17 +33,8 @@ public class MethodsExercises {
         return num1 % num2;
     }
 
-    public static void main(String[] args) {
-//        System.out.println("Addition:" + addition(1, 2));
-//        System.out.println("Subtraction:" + subtraction(5, 3));
-//        System.out.println("Multiplication: " + multiplication(6, 6));
-//        System.out.println("Division: " + division(100, 5));
-//        System.out.println("Modulus: " + modulus(13, 3));
-//        int num = getInteger(1, 20);
-//        factorial(num);
-        dice();
-    }
 
+//    2
     public static int getInteger(int min, int max) {
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Enter a number between %d and %d: ", min, max);
@@ -44,6 +47,7 @@ public class MethodsExercises {
         return userInput;
     }
 
+//    3
     public static void factorial(int number) {
         Scanner scanner = new Scanner(System.in);
 
@@ -67,6 +71,7 @@ public class MethodsExercises {
         }
     }
 
+//    4
     public static void dice() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the number of sides on the dice: ");
