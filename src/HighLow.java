@@ -15,7 +15,7 @@ public class HighLow {
         int gameNumber = gameNumber();
         System.out.println(gameNumber);
         System.out.println("A random number between 1 and 100 has been chosen.");
-        System.out.println("You'll have a total of 5 tries to guess the number.");
+        System.out.println("You'll have a total of 7 tries to guess the number.");
         System.out.println("~~~~~");
 
         String userConfirm;
@@ -37,8 +37,9 @@ public class HighLow {
                 break;
             }
 
-            if (guessCounter >= 5) {
+            if (guessCounter >= 7) {
                 System.out.println("Nice try, maybe next time.");
+                System.out.println("The number was: " + gameNumber);
                 break;
             }
 
