@@ -27,7 +27,7 @@ public class MethodsExercises {
 //        System.out.println("Multiplication: " + multiplication(6, 6));
 //        System.out.println("Division: " + division(100, 5));
 //        System.out.println("Modulus: " + modulus(13, 3));
-       int num =  getInteger(1, 10);
+        int num = getInteger(1, 20);
         factorial(num);
     }
 
@@ -48,7 +48,6 @@ public class MethodsExercises {
 
 //        System.out.print("Enter a number: ");
 //        int userInput = scanner.nextInt();
-
         long result = 1;
 
         for (int i = number; i > 0; i--) {
@@ -60,7 +59,7 @@ public class MethodsExercises {
         boolean userConfirm = scanner.next().equalsIgnoreCase("y");
 
         if (userConfirm) {
-            int num =  getInteger(1, 10);
+            int num = getInteger(1, 20);
             factorial(num);
         } else {
             System.out.println("End.");
