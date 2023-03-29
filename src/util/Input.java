@@ -11,10 +11,12 @@ public class Input {
     }
 
     public String getString() {
+        System.out.print("Enter input: ");
         return scanner.nextLine();
     }
 
     public boolean yesNo() {
+        System.out.println("Would you like to continue? [y/n]");
         String input = scanner.next();
         return input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("sure") || input.equalsIgnoreCase("okay");
     }
