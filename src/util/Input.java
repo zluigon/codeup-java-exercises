@@ -15,7 +15,7 @@ public class Input {
     }
 
     public boolean yesNo() {
-        String input = scanner.next();
+        String input = scanner.nextLine();
         return input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("sure") || input.equalsIgnoreCase("okay");
     }
 
