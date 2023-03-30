@@ -12,14 +12,16 @@ public class MoviesApplication {
         Movie[] movies = MoviesArray.findAll();
 
         boolean userContinue;
+        int userNumber;
 
         do {
             System.out.printf("What would you like to do? %n%n0 - exit %n1 - view all movies %n2 - view movies in the animated category %n3 - view all movies in the drama category %n4 - view movies in the horror category %n5 - view movies in the scifi category %n");
             System.out.println();
 
             System.out.print("Enter your choice: ");
-            int userNumber = input.getInt(0, 5);
+            userNumber = input.getInt(0, 5);
             System.out.println();
+
             if (userNumber == 1) {
                 System.out.println("Listing all movies:");
                 System.out.println();
@@ -59,10 +61,13 @@ public class MoviesApplication {
                     }
                 }
             } else {
-                System.out.println("ending app");
+                System.out.println("Closing Application");
+                break;
             }
             System.out.println();
+            System.out.println("Continue? [Y/N]");
             userContinue = input.yesNo();
         } while (userContinue);
+        System.out.println("Thank you for using our app.");
     }
 }
