@@ -11,12 +11,10 @@ public class Input {
     }
 
     public String getString() {
-        System.out.print("Enter input: ");
         return scanner.nextLine();
     }
 
     public boolean yesNo() {
-        System.out.println("Would you like to continue? [y/n]");
         String input = scanner.next();
         return input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("sure") || input.equalsIgnoreCase("okay");
     }
@@ -29,10 +27,9 @@ public class Input {
     public int getInt(int min, int max) {
         int userInt = getInt();
         if (userInt >= min && userInt <= max) {
-            System.out.printf("Nice, %d is within range.", userInt);
             return userInt;
         } else {
-            System.out.print("Enter a number within range: ");
+            System.out.print("Enter a valid number: ");
             return getInt(min, max);
         }
     }

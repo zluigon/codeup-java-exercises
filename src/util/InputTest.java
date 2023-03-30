@@ -4,9 +4,11 @@ public class InputTest {
     public static void main(String[] args) {
         Input test = new Input();
 
+        System.out.println("Enter a sentence: ");
         String userInput = test.getString();
         System.out.println(userInput);
 
+        System.out.println("Continue? [Y/N]");
         boolean userBool = test.yesNo();
         System.out.println(userBool);
 
