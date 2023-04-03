@@ -4,16 +4,15 @@ public class Square extends Rectangle {
 
     public Square(double side) {
         super(side, side);
-        this.side = side;
     }
 
     @Override
-    public double getPerimeter(){
-        return 4 * side;
+    public double getPerimeter() {
+        return 4 * length;
     }
 
     @Override
-    public double getArea(){
-        return Math.pow(side,2);
+    public double getArea() {
+        return Math.pow(length, 2);
     }
 }
