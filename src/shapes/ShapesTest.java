@@ -6,7 +6,7 @@ public class ShapesTest {
         System.out.println(myShapeOne.getArea());
         System.out.println(myShapeOne.getPerimeter());
 
-        System.out.println("~~~~");
+        System.out.println("\n~~~~\n");
 
         Measurable myShapeTwo = new Square(5);
         System.out.println(myShapeTwo.getArea());
