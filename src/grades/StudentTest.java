@@ -14,12 +14,11 @@ public class StudentTest {
         studentTwo.addGrade(92);
         studentThree.addGrade(85);
 
-        System.out.printf("Name: %s | Grades: %s | AVG: %d\n", studentOne.getName(), studentOne.grades, studentOne.getGradeAverage());
+        System.out.printf("Name: %s | Grades: %s | AVG: %.1f\n", studentOne.getName(), studentOne.getGrades(), studentOne.getGradeAverage());
 
-        System.out.printf("Name: %s | Grades: %s | AVG: %d\n", studentTwo.getName(), studentTwo.grades, studentTwo.getGradeAverage());
+        System.out.printf("Name: %s | Grades: %s | AVG: %.1f\n", studentTwo.getName(), studentTwo.getGrades(), studentTwo.getGradeAverage());
 
-        System.out.printf("Name: %s | Grades: %s | AVG: %d\n", studentThree.getName(), studentThree.grades, studentThree.getGradeAverage());
-
+        System.out.printf("Name: %s | Grades: %s | AVG: %.1f\n", studentThree.getName(), studentThree.getGrades(), studentThree.getGradeAverage());
 
     }
 }
