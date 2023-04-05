@@ -41,7 +41,7 @@ public class GradesApplication {
         do {
             System.out.println("Options: \n\t0 - exit\n\t1 - search for student\n\t2 - view all student grades\n\t3 - view class average\n\t4 - print student list in csv format\n");
 
-            int userSelect = input.getInt();
+            int userSelect = input.getInt(0, 4);
 
 
             input.getString();
@@ -73,10 +73,12 @@ public class GradesApplication {
                 } while (userBool);
 
             } else if (userSelect == 2) {
+
                 for (Map.Entry<String, Object> student : students.entrySet()) {
                     Student studentEntry = (Student) student.getValue();
                     System.out.printf("\tName: %s, Grades: %s\n", studentEntry.getName(), studentEntry.getGrades());
                 }
+
             } else if (userSelect == 3) {
 
                 ArrayList<Integer> classGrades = new ArrayList<>();
@@ -106,7 +108,9 @@ public class GradesApplication {
 
             System.out.println("\n\nWould you like to see menu options? [Y/N]");
             userBool2 = input.yesNo();
+
         } while (userBool2);
+
         System.out.println("\nGoodbye, and have a wonderful day!");
     }
 }
