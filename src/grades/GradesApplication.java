@@ -2,7 +2,9 @@ package grades;
 
 import util.Input;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class GradesApplication {
     public static void main(String[] args) {
@@ -33,42 +35,78 @@ public class GradesApplication {
         Input input = new Input();
 
         System.out.println("Welcome!\n");
-        boolean userBool;
+
+        boolean userBool2;
+
         do {
-            System.out.println("Here are the GitHub usernames of our students:\n");
+            System.out.println("Options: \n\t0 - exit\n\t1 - search for student\n\t2 - view all student grades\n\t3 - view class average\n\t4 - print student list in csv format\n");
 
-            // .keySet() iterates once for every key in the data set, returning a set of keys
-            for (String student : students.keySet()) {
-                System.out.printf("|%s| ", student);
+            int userSelect = input.getInt();
+
+
+            input.getString();
+            if (userSelect == 1) {
+
+                boolean userBool;
+                do {
+                    System.out.println("Here are the GitHub usernames of our students:\n");
+
+                    // .keySet() iterates once for every key in the data set, returning a set of keys
+                    for (String student : students.keySet()) {
+                        System.out.printf("|%s| ", student);
+                    }
+
+                    System.out.println("\n\nWhat student would you like to see more information on?");
+
+                    String userInput = input.getString();
+
+                    if (!students.containsKey(userInput)) {
+                        System.out.printf("Sorry, no student found with the GitHub username of '%s'.\n\n", userInput);
+                    } else {
+                        Student student = (Student) students.get(userInput);
+                        System.out.printf("\tName: %s - GitHub Username: %s\n\tGrades: %s\n\tCurrent Average: %.1f\n\n", student.getName(), userInput, student.getGrades(), student.getGradeAverage());
+                    }
+
+                    System.out.println("Would you like to see another student? [Y/N]");
+                    userBool = input.yesNo();
+
+                } while (userBool);
+
+            } else if (userSelect == 2) {
+                for (Map.Entry<String, Object> student : students.entrySet()) {
+                    Student studentEntry = (Student) student.getValue();
+                    System.out.printf("\tName: %s, Grades: %s\n", studentEntry.getName(), studentEntry.getGrades());
+                }
+            } else if (userSelect == 3) {
+
+                ArrayList<Integer> classGrades = new ArrayList<>();
+
+                for (Map.Entry<String, Object> student : students.entrySet()) {
+                    Student studentEntry = (Student) student.getValue();
+                    classGrades.addAll(studentEntry.getGrades());
+                }
+
+                double classSum = 0;
+
+                for (Integer grade : classGrades) {
+                    classSum += grade;
+                }
+                System.out.printf("\tClass Average: %.2f", classSum / classGrades.size());
+
+            } else if (userSelect == 4) {
+
+                System.out.println("\tname,github_username,average");
+                // .entrySet() iterates over all entries, returns set of key-value mappings
+                for (Map.Entry<String, Object> student : students.entrySet()) {
+                    String userList = student.getKey();
+                    Student studentEntry = (Student) student.getValue();
+                    System.out.printf("\t%s,%s,%.1f\n", studentEntry.getName(), userList, studentEntry.getGradeAverage());
+                }
             }
 
-            System.out.println("\n\nWhat student would you like to see more information on?");
-
-            String userInput = input.getString();
-
-            if (!students.containsKey(userInput)) {
-                System.out.printf("Sorry, no student found with the GitHub username of '%s'.\n\n", userInput);
-            } else {
-                Student student = (Student) students.get(userInput);
-                System.out.printf("Name: %s - GitHub Username: %s\nGrades: %s\nCurrent Average: %.1f\n\n", student.getName(), userInput,student.getGrades(), student.getGradeAverage());
-            }
-
-            System.out.println("Would you like to see another student?");
-            userBool = input.yesNo();
-
-        } while (userBool);
-
-        System.out.println("Goobye, and have a wonderful day!");
-
-
-        // .entrySet() returns the set of key-value mappings
-//        for (Map.Entry<String, Object> student : students.entrySet()) {
-//            String userList = student.getKey();
-//            Student student1 = (Student) student.getValue();
-//            System.out.printf("%s, %s, %d\n",student1.getName(), userList, student1.getGradeAverage());
-//        }
-//        System.out.println();
-
-
+            System.out.println("\n\nWould you like to see menu options? [Y/N]");
+            userBool2 = input.yesNo();
+        } while (userBool2);
+        System.out.println("\nGoodbye, and have a wonderful day!");
     }
 }
