@@ -21,7 +21,14 @@ public class Input {
 
 
     public int getInt() {
-        return scanner.nextInt();
+        while(true) {
+            System.out.print("Enter a int: ");
+            try {
+                return Integer.parseInt(getString());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input." + e);
+            }
+        }
     }
 
     public int getInt(int min, int max) {
@@ -35,8 +42,16 @@ public class Input {
     }
 
     public double getDouble() {
-        return scanner.nextDouble();
+        while(true) {
+            System.out.print("Enter a double: ");
+            try {
+                return Double.parseDouble(getString());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input." + e);
+            }
+        }
     }
+
 
     public double getDouble(double min, double max) {
         double userDbl = getDouble();
